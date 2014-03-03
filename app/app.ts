@@ -3,15 +3,15 @@
 module app {
     'use strict'
 
-    var myapp = angular.module('app', ['ngRoute'])
+    var myapp: ng.IModule = angular.module('app', ['ngRoute'])
 
-    myapp.controller('homeCtrl', HomeCtrl.prototype.injection())
+    myapp.controller('ctrl', ScaffoldCtrl.prototype.injection())
 
     myapp.service('service', ScaffoldService.prototype.injection())
 
-    //myapp.directive('userService', UserService)
+    myapp.directive('directive', ScaffoldDirective.prototype.injection())
 
-    myapp.config(['$routeProvider', function($routeProvider) {
+    myapp.config(['$routeProvider', function($routeProvider: ng.route.IRouteProvider) {
 		$routeProvider.when('/home', {templateUrl: 'partials/home.html'}).
 		otherwise({redirectTo: '/home'})
   	}])

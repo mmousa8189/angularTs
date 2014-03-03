@@ -32,27 +32,42 @@ var app;
 (function (app) {
     'use strict';
 
-    var HomeCtrl = (function () {
-        function HomeCtrl($scope) {
-            this.member = 0;
+    var ScaffoldDirective = (function () {
+        function ScaffoldDirective() {
+            this.templateUrl = 'partials/templates/directive.html';
+            this.restrict = 'E';
         }
-        HomeCtrl.prototype.injection = function () {
+        ScaffoldDirective.prototype.injection = function () {
             return [
-                '$scope',
-                HomeCtrl
+                function () {
+                    return new ScaffoldDirective();
+                }
             ];
         };
 
-        HomeCtrl.prototype.inc = function () {
-            this.member++;
+        ScaffoldDirective.prototype.link = function ($scope, element, attributes) {
+            element.text("i'm a directive");
         };
-
-        HomeCtrl.prototype.dec = function () {
-            this.member--;
-        };
-        return HomeCtrl;
+        return ScaffoldDirective;
     })();
-    app.HomeCtrl = HomeCtrl;
+    app.ScaffoldDirective = ScaffoldDirective;
+})(app || (app = {}));
+/// <reference path='../_all.ts' />
+var app;
+(function (app) {
+    'use strict';
+
+    var ScaffoldCtrl = (function () {
+        function ScaffoldCtrl() {
+        }
+        ScaffoldCtrl.prototype.injection = function () {
+            return [
+                ScaffoldCtrl
+            ];
+        };
+        return ScaffoldCtrl;
+    })();
+    app.ScaffoldCtrl = ScaffoldCtrl;
 })(app || (app = {}));
 /// <reference path='_all.ts' />
 var app;
@@ -61,11 +76,12 @@ var app;
 
     var myapp = angular.module('app', ['ngRoute']);
 
-    myapp.controller('homeCtrl', app.HomeCtrl.prototype.injection());
+    myapp.controller('ctrl', app.ScaffoldCtrl.prototype.injection());
 
     myapp.service('service', app.ScaffoldService.prototype.injection());
 
-    //myapp.directive('userService', UserService)
+    myapp.directive('directive', app.ScaffoldDirective.prototype.injection());
+
     myapp.config([
         '$routeProvider',
         function ($routeProvider) {

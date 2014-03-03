@@ -6,7 +6,6 @@ module app {
     export class ScaffoldModel {
 
         constructor(){
-
         }
 
     }

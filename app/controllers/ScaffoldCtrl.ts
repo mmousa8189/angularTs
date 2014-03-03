@@ -2,17 +2,17 @@
 
 module app {
     'use strict'
-
-    export class ScaffoldService {
+    
+    export class ScaffoldCtrl {
 
         public injection(): Array<any> {
             return [
-                ScaffoldService
+                ScaffoldCtrl
             ]
         }
-
-    	constructor() {
+    
+        constructor() { 
         }
-
     }
+
 }
