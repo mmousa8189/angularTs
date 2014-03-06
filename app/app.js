@@ -62,7 +62,7 @@ var app;
         }
         ScaffoldCtrl.prototype.injection = function () {
             return [
-                ScaffoldCtrl
+                new ScaffoldCtrl()
             ];
         };
         return ScaffoldCtrl;

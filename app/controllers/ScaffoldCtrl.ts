@@ -7,7 +7,7 @@ module app {
 
         public injection(): Array<any> {
             return [
-                ScaffoldCtrl
+                new ScaffoldCtrl()
             ]
         }
     
