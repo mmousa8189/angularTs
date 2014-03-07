@@ -1,7 +1,7 @@
 /// <reference path='../_all.ts' />
 
 module app {
-    'use strict';
+    'use strict'
 
     export class ScaffoldModel {
 

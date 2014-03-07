@@ -7,11 +7,11 @@ module app {
 
         public injection(): Array<any> {
             return [
-                new ScaffoldCtrl()
+                ScaffoldCtrl
             ]
         }
     
-        constructor() { 
+        constructor() {
         }
     }
 
